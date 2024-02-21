@@ -19,8 +19,7 @@ if($_SERVER['REQUEST_METHOD'] == "POST" && count($_POST) > 0)
     JOIN ward ON polling_unit.ward_id = ward.ward_id
     JOIN lga ON polling_unit.lga_id = lga.lga_id
     WHERE lga.lga_id = $lga_id
-    GROUP BY lga.lga_name, ward.ward_name, polling_unit.polling_unit_id, announced_pu_results.party_abbreviation
-    LIMIT $start, $resultsPerPage";
+    GROUP BY lga.lga_name, ward.ward_name, polling_unit.polling_unit_id, announced_pu_results.party_abbreviation";
 
     $stmt = $conn->prepare($query);
     $stmt->execute();
